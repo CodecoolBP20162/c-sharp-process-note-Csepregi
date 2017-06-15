@@ -39,13 +39,15 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button3 = new System.Windows.Forms.Button();
+            this.comment_btn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.comment_text = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(81, 284);
+            this.button1.Location = new System.Drawing.Point(32, 234);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -55,7 +57,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(405, 284);
+            this.button2.Location = new System.Drawing.Point(135, 234);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -64,7 +66,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(52, 241);
+            this.textBox1.Location = new System.Drawing.Point(32, 272);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(152, 20);
             this.textBox1.TabIndex = 3;
@@ -75,9 +77,9 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(12, 28);
+            this.listView1.Location = new System.Drawing.Point(32, 12);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(157, 207);
+            this.listView1.Size = new System.Drawing.Size(124, 207);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -97,9 +99,9 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
-            this.listView2.Location = new System.Drawing.Point(320, 12);
+            this.listView2.Location = new System.Drawing.Point(239, 12);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(321, 236);
+            this.listView2.Size = new System.Drawing.Size(402, 96);
             this.listView2.TabIndex = 5;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -120,18 +122,32 @@
             this.columnHeader7.Text = "Start Time";
             this.columnHeader7.Width = 104;
             // 
+            // comment_btn
+            // 
+            this.comment_btn.Location = new System.Drawing.Point(409, 284);
+            this.comment_btn.Name = "comment_btn";
+            this.comment_btn.Size = new System.Drawing.Size(75, 23);
+            this.comment_btn.TabIndex = 6;
+            this.comment_btn.Text = "Comment";
+            this.comment_btn.UseVisualStyleBackColor = true;
+            this.comment_btn.Click += new System.EventHandler(this.comment_btn_Click);
+            // 
+            // comment_text
+            // 
+            this.comment_text.Location = new System.Drawing.Point(346, 246);
+            this.comment_text.Name = "comment_text";
+            this.comment_text.Size = new System.Drawing.Size(224, 20);
+            this.comment_text.TabIndex = 7;
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(239, 284);
+            this.button3.Location = new System.Drawing.Point(63, 301);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "details";
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Open";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // timer1
-            // 
-            
+            this.button3.Click += new System.EventHandler(this.startButton_Click);
             // 
             // Form1
             // 
@@ -139,6 +155,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 336);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.comment_text);
+            this.Controls.Add(this.comment_btn);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.textBox1);
@@ -161,9 +179,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button comment_btn;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox comment_text;
+        private System.Windows.Forms.Button button3;
     }
 }
 

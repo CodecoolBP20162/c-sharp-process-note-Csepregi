@@ -17,12 +17,15 @@ namespace ProcessNote
     public partial class Form1 : Form
     {
         System.Windows.Forms.Timer t;
+        Dictionary<string, int> comment = new Dictionary<string, int>();
+        
 
 
         public Form1()
         {
             InitializeComponent();
-            listView1.FullRowSelect = true;            
+            listView1.FullRowSelect = true;
+            comment_btn.Enabled = false;
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -62,8 +65,9 @@ namespace ProcessNote
         {
             ListViewItem item = listView1.SelectedItems[0];
 
-            Process process = (Process)item.Tag;
+            Process process = (Process)item.Tag;        
             process.Kill();
+
             loadProcessList();
         }
 
@@ -75,6 +79,7 @@ namespace ProcessNote
                 if (listView1.SelectedItems.Count == 0)
                     return;
                 listView2.Items.Clear();
+                comment_btn.Enabled = true;
                 string item_Id = listView1.SelectedItems[0].SubItems[1].Text;
                 int int_item = Int32.Parse(item_Id);
                 Process process = Process.GetProcessById(int_item);
@@ -94,10 +99,11 @@ namespace ProcessNote
                 const string text = "Process list updated";
                 const string caption = "Update message";
                 MessageBoxButtons buttonsForMessageBox = MessageBoxButtons.OK;
-                MessageBox.Show(text, caption, buttonsForMessageBox);
+                MessageBox.Show(text, caption, buttonsForMessageBox);                             
             }
             
-                                 
+            
+
         }
 
         private void Timer_Shown(object sender, EventArgs e)
@@ -114,7 +120,11 @@ namespace ProcessNote
             listView1_SelectedIndexChanged(sender, e);            
         }
 
+        private void comment_btn_Click(object sender, EventArgs e)
+        {
+            string text = comment_text.Text;
 
+        }
     }
 }
  
