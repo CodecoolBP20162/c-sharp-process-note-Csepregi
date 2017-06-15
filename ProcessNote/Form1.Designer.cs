@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -39,6 +40,7 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button3 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // button1
@@ -126,7 +128,10 @@
             this.button3.TabIndex = 6;
             this.button3.Text = "details";
             this.button3.UseVisualStyleBackColor = true;
-           
+            // 
+            // timer1
+            // 
+            
             // 
             // Form1
             // 
@@ -158,6 +163,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
