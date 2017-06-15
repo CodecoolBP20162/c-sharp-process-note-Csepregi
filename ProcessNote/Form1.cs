@@ -70,28 +70,40 @@ namespace ProcessNote
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count == 0)
-                return;
-            listView2.Items.Clear();
-            string item_Id = listView1.SelectedItems[0].SubItems[1].Text;
-            int int_item = Int32.Parse(item_Id);
-            Process process = Process.GetProcessById(int_item);
-                                            
-            ListViewItem item = new ListViewItem(process.PagedMemorySize64.ToString());
-           
-            item.SubItems.Add((DateTime.UtcNow - process.StartTime.ToUniversalTime()).ToString());
+            try
+            {
+                if (listView1.SelectedItems.Count == 0)
+                    return;
+                listView2.Items.Clear();
+                string item_Id = listView1.SelectedItems[0].SubItems[1].Text;
+                int int_item = Int32.Parse(item_Id);
+                Process process = Process.GetProcessById(int_item);
+
+                ListViewItem item = new ListViewItem(process.PagedMemorySize64.ToString());
+
+                item.SubItems.Add((DateTime.UtcNow - process.StartTime.ToUniversalTime()).ToString());
 
 
-            item.SubItems.Add(process.StartTime.ToString());
-            item.Tag = process;
-            listView2.Items.Add(item);
-            listView2.Refresh();                      
+                item.SubItems.Add(process.StartTime.ToString());
+                item.Tag = process;
+                listView2.Items.Add(item);
+            }
+            catch(Exception ex)
+            {
+
+                const string text = "Process list updated";
+                const string caption = "Update message";
+                MessageBoxButtons buttonsForMessageBox = MessageBoxButtons.OK;
+                MessageBox.Show(text, caption, buttonsForMessageBox);
+            }
+            
+                                 
         }
 
         private void Timer_Shown(object sender, EventArgs e)
         {
             t = new System.Windows.Forms.Timer();
-            t.Interval = 1000;
+            t.Interval = 5000;
             t.Tick += new EventHandler(t_Tick);
             t.Start();
         }
